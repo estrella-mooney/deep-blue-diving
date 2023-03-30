@@ -14,16 +14,16 @@ export function addNewDive(newDive: DivesInterface): Promise<DivesInterface> {
     })
 }
 
-export function updateDives(diveId: string, dive: DivesInterface) {
+export function updateDives(dive: DivesInterface) {
   return request
-    .patch(`/api/v1/dives/${diveId}`)
+    .patch(`/api/v1/dives/${dive.id}`)
     .send(dive)
     .then((res) => {
       return res.body
     })
 }
 
-export function deleteDives(diveId: number): Promise<number> {
+export function deleteDivesApi(diveId: number): Promise<number> {
   return request.del(`/api/v1/dives/${diveId}`).then((res) => res.body)
 }
 

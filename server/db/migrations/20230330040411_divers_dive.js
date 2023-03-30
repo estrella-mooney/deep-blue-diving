@@ -4,6 +4,7 @@
  */
 exports.up = function (knex) {
   return knex.schema.createTable('divers_dive', (table) => {
+    table.increments('id').primary()
     table.integer('diver_id').references('diver.id')
     table.integer('dive_id').references('dives.id')
   })

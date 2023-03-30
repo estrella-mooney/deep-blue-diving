@@ -14,7 +14,7 @@ exports.seed = async function (knex) {
       max_depth: 10,
       duration: 120,
       max_group: 3,
-      time: 0,
+      time: new Date('2023-03-31T12:30:00.000Z'),
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ exports.seed = async function (knex) {
       max_depth: 6,
       duration: 180,
       max_group: 2,
-      time: 0,
+      time: new Date('2023-04-20T14:00:00.000Z'),
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ exports.seed = async function (knex) {
       max_depth: 7,
       duration: 60,
       max_group: 3,
-      time: 0,
+      time: new Date('2023-04-18T14:30:00.000Z'),
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ exports.seed = async function (knex) {
       max_depth: 5,
       duration: 120,
       max_group: 6,
-      time: 0,
+      time: new Date('2023-06-17T13:30:00.000Z'),
     },
     {
       id: 5,
@@ -54,7 +54,7 @@ exports.seed = async function (knex) {
       max_depth: 15,
       duration: 480,
       max_group: 5,
-      time: 0,
+      time: new Date('2023-06-15T14:30:00.000Z'),
     },
   ])
 }

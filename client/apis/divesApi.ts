@@ -29,4 +29,4 @@ export function deleteDives(diveId: number): Promise<number> {
 
 export function getIndivudualDives(diveId: number): Promise<DivesInterface[]> {
   return request.get(`/api/v1/dives/${diveId}`).then((res) => res.body)
-}
+} //Don't need this as we are using redux to store the local copy of our db

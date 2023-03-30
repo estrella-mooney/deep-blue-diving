@@ -1,4 +1,5 @@
 import express from 'express'
+import { DivesInterface } from '../../common/Dives'
 import {
   getAllDives,
   getIndivudualDives,
@@ -22,9 +23,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const newDive = req.body
   createDives(newDive)
-    .then((newDive) => {
-      res.json(newDive)
-    })
+    .then((newDive) => res.json(newDive))
     .catch((err: Error) => {
       res.status(500).send(err.message)
     })
@@ -51,7 +50,7 @@ router.patch('/:id', (req, res) => {
     duration: duration,
     max_group: max_group,
     time: time,
-  }
+  } as DivesInterface
 
   updateDives(updateData)
     .then((update) => {

@@ -2,35 +2,37 @@ import type { ThunkAction } from '../store'
 import { Diver, DiverInfo } from '../../common/diver'
 import { getAllDivers } from '../apis/apiDivers'
 
-export type Action =
+export type DiverAction =
   | { type: 'SET_DIVERS'; payload: Diver[] }
-  | { type: 'DEL_DIVERS'; payload: Diver[] }
-  | {
-      type: 'UPDATE_DIVERS'
-      payload: { oldDiver: Diver[]; newDiver: Diver[] }
-    }
+  | { type: 'DEL_DIVER'; payload: number }
+  | { type: 'UPDATE_DIVER'; payload: Diver }
+  | { type: 'ADD_DIVER'; payload: Diver }
 
-export function showDivers(setDivers: Diver[]): Action {
+export function showDivers(setDivers: Diver[]): DiverAction {
   return {
     type: 'SET_DIVERS',
     payload: setDivers,
   }
 }
 
-export function updateDivers(oldDiver: Diver[], newDiver: Diver[]): Action {
+export function addDiver(addDiver: Diver): DiverAction {
   return {
-    type: 'UPDATE_DIVERS',
-    payload: {
-      oldDiver: oldDiver,
-      newDiver: newDiver,
-    },
+    type: 'ADD_DIVER',
+    payload: addDiver,
   }
 }
 
-export function deleteDivers(deleteDivers: Diver[]): Action {
+export function updateDiver(newDiver: Diver) {
   return {
-    type: 'DEL_DIVERS',
-    payload: deleteDivers,
+    type: 'UPDATE_DIVER',
+    payload: newDiver,
+  }
+}
+
+export function deleteDiver(deleteDiver: number): DiverAction {
+  return {
+    type: 'DEL_DIVER',
+    payload: deleteDiver,
   }
 }
 

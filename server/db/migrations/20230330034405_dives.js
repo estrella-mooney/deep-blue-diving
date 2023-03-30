@@ -10,7 +10,7 @@ exports.up = function (knex) {
     table.integer('max_depth')
     table.integer('duration')
     table.integer('max_group')
-    table.date('time')
+    table.timestamp('time')
   })
 }
 

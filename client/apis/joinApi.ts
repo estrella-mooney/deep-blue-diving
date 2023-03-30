@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { Join } from '../../common/join'
 
-export function getJoins(): Promise<Join[]> {
+export function getAllJoins(): Promise<Join[]> {
   return request.get('/api/v1/join').then((res) => res.body)
 }
 

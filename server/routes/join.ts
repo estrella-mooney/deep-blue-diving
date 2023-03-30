@@ -5,9 +5,16 @@ import {
   getDiversOnDive,
   getDivesForDiver,
   deleteJoins,
+  getJoins,
 } from '../db/joindb'
 
 const router = express.Router()
+
+router.get('/', (req, res) => {
+  getJoins()
+    .then((joins) => res.json(joins))
+    .catch((err) => res.status(500).json({ status: 500, error: err.message }))
+})
 
 router.get('/dives-for-diver/:id', (req, res) => {
   getDivesForDiver(Number(req.params.id))

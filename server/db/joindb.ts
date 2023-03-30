@@ -21,6 +21,10 @@ export function addDiversToDive(
     .returning('*')
 }
 
+export function getJoins(db = conn): Promise<Join[]> {
+  return db('divers_dive').select()
+}
+
 export function getDiversOnDive(
   dive_id: number,
   db = conn

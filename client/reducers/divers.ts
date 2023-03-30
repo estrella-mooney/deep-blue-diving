@@ -8,11 +8,11 @@ export default function (
   switch (type) {
     case 'SET_DIVERS':
       return payload
-    case 'UPDATE_DIVERS':
+    case 'UPDATE_DIVER':
       return state.map((diver) => (diver.id === payload.id ? payload : diver))
-    case 'DEL_DIVERS':
+    case 'DEL_DIVER':
       return state.filter((diver) => diver.id !== payload)
-    case 'NEW_DIVER':
+    case 'ADD_DIVER':
       return [...state, payload]
     default:
       return state

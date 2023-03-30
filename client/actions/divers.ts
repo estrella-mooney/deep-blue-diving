@@ -5,7 +5,8 @@ import { getAllDivers } from '../apis/apiDivers'
 export type DiverAction =
   | { type: 'SET_DIVERS'; payload: Diver[] }
   | { type: 'DEL_DIVER'; payload: number }
-  | { type: 'UPDATE_DIVERS'; payload: Diver }
+  | { type: 'UPDATE_DIVER'; payload: Diver }
+  | { type: 'ADD_DIVER'; payload: Diver }
 
 export function showDivers(setDivers: Diver[]): DiverAction {
   return {
@@ -14,22 +15,24 @@ export function showDivers(setDivers: Diver[]): DiverAction {
   }
 }
 
-export function addDiver(): DiverAction {}
-
-export function updateDivers(
-  oldDiver: Diver[],
-  newDiver: Diver[]
-): DiverAction {
+export function addDiver(addDiver: Diver): DiverAction {
   return {
-    type: 'UPDATE_DIVERS',
+    type: 'ADD_DIVER',
+    payload: addDiver,
+  }
+}
+
+export function updateDiver(newDiver: Diver) {
+  return {
+    type: 'UPDATE_DIVER',
     payload: newDiver,
   }
 }
 
-export function deleteDivers(deleteDivers: Diver[]): DiverAction {
+export function deleteDiver(deleteDiver: number): DiverAction {
   return {
-    type: 'DEL_DIVERS',
-    payload: deleteDivers,
+    type: 'DEL_DIVER',
+    payload: deleteDiver,
   }
 }
 

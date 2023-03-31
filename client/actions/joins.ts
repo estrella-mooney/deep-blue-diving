@@ -36,6 +36,7 @@ export function addDiversToDive(
   dive_id: number
 ): ThunkAction {
   return (dispatch) => {
+    console.log('adding divers')
     return API.addDiversToDive(diver_ids, dive_id).then((joins) => {
       dispatch(addJoins(joins))
     })

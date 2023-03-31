@@ -17,7 +17,8 @@ function AddDiveForm() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    dispatch(thunkAddDive(userDive))
+    const convertDate = new Date(userDive.time).toISOString()
+    dispatch(thunkAddDive({ ...userDive, time: Number(convertDate) }))
     navigate('/dives')
   }
 
@@ -60,6 +61,16 @@ function AddDiveForm() {
       <input
         name="max_group"
         id="max_group"
+        onChange={handleDiveChange}
+        required
+      />
+      <br></br>
+
+      <label htmlFor="time">Time: </label>
+      <input
+        name="time"
+        id="time"
+        type="datetime-local"
         onChange={handleDiveChange}
         required
       />

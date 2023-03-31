@@ -1,6 +1,6 @@
 import type { ThunkAction } from '../store'
 import { Diver, DiverInfo } from '../../common/diver'
-import { getAllDivers } from '../apis/apiDivers'
+import { getAllDivers, addDiverApi } from '../apis/apiDivers'
 import { setError } from './error'
 
 export type DiverAction =
@@ -42,6 +42,18 @@ export function fetchDiver(): ThunkAction {
     return getAllDivers()
       .then((diver) => {
         dispatch(showDivers(diver))
+      })
+      .catch((err) => {
+        dispatch(setError(err.message))
+      })
+  }
+}
+
+export function thunkAddDiver(diver: Diver): ThunkAction {
+  return (dispatch) => {
+    return addDiverApi(diver)
+      .then((diver) => {
+        dispatch(addDiver(diver))
       })
       .catch((err) => {
         dispatch(setError(err.message))

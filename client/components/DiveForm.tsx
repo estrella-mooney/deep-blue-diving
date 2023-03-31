@@ -3,9 +3,11 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import { useAppDispatch } from '../hooks/redux'
 import { addDive, thunkAddDive } from '../actions/dives'
 import { DivesInterface } from '../../common/Dives'
+import { useNavigate } from 'react-router-dom'
 
 function AddDiveForm() {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
 
   const [userDive, setUserDive] = useState({} as DivesInterface)
 
@@ -16,6 +18,7 @@ function AddDiveForm() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     dispatch(thunkAddDive(userDive))
+    navigate('/dives')
   }
 
   return (

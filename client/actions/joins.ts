@@ -1,5 +1,5 @@
 import { Join } from '../../common/join'
-import { getAllJoins } from '../apis/joinApi'
+import * as API from '../apis/joinApi'
 import { ThunkAction } from '../store'
 import { setError } from './error'
 
@@ -21,7 +21,7 @@ function delJoins(ids: number[]): JoinAction {
 
 export function getJoins(): ThunkAction {
   return (dispatch) => {
-    return getAllJoins()
+    return API.getAllJoins()
       .then((joins) => {
         dispatch(setJoins(joins))
       })
@@ -31,4 +31,32 @@ export function getJoins(): ThunkAction {
   }
 }
 
-// export function
+export function addDiversToDive(
+  diver_ids: number[],
+  dive_id: number
+): ThunkAction {
+  return (dispatch) => {
+    return API.addDiversToDive(diver_ids, dive_id).then((joins) => {
+      dispatch(addJoins(joins))
+    })
+  }
+}
+
+export function addDiverToDives(
+  diver_id: number,
+  dive_ids: number[]
+): ThunkAction {
+  return (dispatch) => {
+    return API.addDiverToDives(diver_id, dive_ids).then((joins) => {
+      dispatch(addJoins(joins))
+    })
+  }
+}
+
+export function deleteJoins(join_ids: number[]): ThunkAction {
+  return (dispatch) => {
+    return API.deleteJoins(join_ids).then(() => {
+      dispatch(delJoins(join_ids))
+    })
+  }
+}

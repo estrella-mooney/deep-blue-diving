@@ -25,6 +25,7 @@ export default function DiveAssignDivers({ dive_id }: Props) {
   )
 
   function handleSubmit(evt: FormEvent) {
+    console.log('handling submit')
     evt.preventDefault()
     const diversToAdd = divers.filter(
       ({ id }) =>

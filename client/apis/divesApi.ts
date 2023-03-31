@@ -14,7 +14,7 @@ export function addNewDive(newDive: DivesInterface): Promise<DivesInterface> {
     })
 }
 
-export function updateDives(dive: DivesInterface) {
+export function updateDivesApi(dive: DivesInterface) {
   return request
     .patch(`/api/v1/dives/${dive.id}`)
     .send(dive)

@@ -5,7 +5,7 @@ export function getAllDivers(): Promise<Diver[]> {
   return request.get('/api/v1/divers').then((res) => res.body)
 }
 
-export function addDiver(diver: DiverInfo): Promise<Diver> {
+export function addDiverApi(diver: DiverInfo): Promise<Diver> {
   return request
     .post('/api/v1/divers')
     .send(diver)

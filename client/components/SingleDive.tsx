@@ -11,7 +11,7 @@ export default function Dive(props: Props) {
   return (
     <div>
       <h1>{title}</h1>
-      <h2>Description</h2>
+      <p>Description</p>
       <p>{description}</p>
       <p>Maximum depth: {max_depth}</p>
       <p>Duration: {duration}</p>

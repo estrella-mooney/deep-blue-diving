@@ -1,6 +1,7 @@
 import type { ThunkAction } from '../store'
 import { Diver, DiverInfo } from '../../common/diver'
 import { getAllDivers } from '../apis/apiDivers'
+import { setError } from './error'
 
 export type DiverAction =
   | { type: 'SET_DIVERS'; payload: Diver[] }
@@ -43,7 +44,7 @@ export function fetchDiver(): ThunkAction {
         dispatch(showDivers(diver))
       })
       .catch((err) => {
-        dispatch(err.message)
+        dispatch(setError(err.message))
       })
   }
 }

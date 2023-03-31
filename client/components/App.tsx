@@ -17,7 +17,7 @@ function App() {
           <Route path="/divers" element={<Divers />} />
           <Route path="/dives" element={<Dives />} />
           <Route path="/dives/add" element={<DiveForm />} />
-          <Route path="/divers/add" element={<Dives />} />
+          <Route path="/divers/add" element={<DiverForm />} />
           {/* <Route path="/divers/add" element={<UpdateDiver />} />
           <Route path="/divers/add" element={<UpdateDive />} /> */}
         </Routes>

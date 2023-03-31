@@ -1,11 +1,12 @@
 import { DivesInterface } from '../../common/Dives'
+import DiveAssignDivers from './DiveAssignDivers'
 
 interface Props {
   divesData: DivesInterface
 }
 
 export default function Dive(props: Props) {
-  const { title, description, max_depth, duration, max_group, time } =
+  const { id, title, description, max_depth, duration, max_group, time } =
     props.divesData
   const newTime = new Date(time * 1000).toLocaleString('en-NZ')
   return (
@@ -17,6 +18,7 @@ export default function Dive(props: Props) {
       <p>Duration: {duration}</p>
       <p>Group: {max_group}</p>
       <p>Start at: {newTime}</p>
+      <DiveAssignDivers dive_id={id} />
     </div>
   )
 }

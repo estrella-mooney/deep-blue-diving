@@ -2,14 +2,28 @@ import Divers from './Divers'
 import Dives from './Dives'
 import Home from './Home'
 import DiveForm from './DiveForm'
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 import DiverForm from './DiverForm'
+import { useEffect } from 'react'
+import { useAppDispatch } from '../hooks/redux'
+import { fetchDives } from '../actions/dives'
+import { getJoins } from '../actions/joins'
+import { fetchDivers } from '../actions/divers'
 
 function App() {
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(fetchDives())
+    dispatch(getJoins())
+    dispatch(fetchDivers())
+  }, [])
+
   return (
     <>
       <header>
-        <h1>Dive One Oh One Application</h1>
+        <Link to="/">
+          <h1>Dive One Oh One Application</h1>
+        </Link>
       </header>
       <section>
         <Routes>

@@ -8,10 +8,6 @@ export default function AllDives() {
   const dispatch = useAppDispatch()
   const allDives = useAppSelector((state) => state.dives)
 
-  useEffect(() => {
-    dispatch(fetchDives())
-  })
-
   return (
     <section>
       <Link to="/dives/add">Add Dive</Link>

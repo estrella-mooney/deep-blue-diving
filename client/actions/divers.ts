@@ -37,7 +37,7 @@ export function deleteDiver(deleteDiver: number): DiverAction {
   }
 }
 
-export function fetchDiver(): ThunkAction {
+export function fetchDivers(): ThunkAction {
   return (dispatch) => {
     return getAllDivers()
       .then((diver) => {

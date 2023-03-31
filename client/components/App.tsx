@@ -2,6 +2,8 @@ import Divers from './Divers'
 import Dives from './Dives'
 import Home from './Home'
 import { Route, Routes } from 'react-router-dom'
+import DiverForm from './DiverForm'
+import DiveForm from './DiveForm'
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
           <Route path="/divers" element={<Divers />} />
           <Route path="/dives" element={<Dives />} />
           <Route path="/divers/add" element={<Divers />} />
-          <Route path="/divers/add" element={<Dives />} />
+          <Route path="/dives/add" element={<DiveForm />} />
           {/* <Route path="/divers/add" element={<UpdateDiver />} />
           <Route path="/divers/add" element={<UpdateDive />} /> */}
         </Routes>

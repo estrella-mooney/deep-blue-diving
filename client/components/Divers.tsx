@@ -1,11 +1,9 @@
 import * as D from '../../common/diver'
+import { useAppSelector } from '../hooks/redux'
 import Diver from './Diver'
 
-interface Props {
-  divers: D.Diver[]
-}
-
-export default function Divers({ divers }: Props) {
+export default function Divers() {
+  const divers = useAppSelector((state) => state.divers)
   return (
     <div className="diver__grid">
       {divers.map((diver) => (

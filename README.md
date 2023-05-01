@@ -1,4 +1,4 @@
-# Documentation
+# Deep Blue Diving - Documentation
 
 ## Database Structure
 
